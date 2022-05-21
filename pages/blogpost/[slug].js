@@ -31,7 +31,7 @@ export async function getStaticPaths() {
   allb = allb.map((item) => {
     return { params: { slug: item.split(".")[0] } };
   });
-  console.log(allb);
+  // console.log(allb);
   return {
     paths: allb,
     fallback: true,
