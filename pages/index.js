@@ -1,8 +1,23 @@
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
+import * as fs from "fs";
+import InfiniteScroll from "react-infinite-scroll-component";
+
 // import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+function Home(props) {
+  const [blogs, setBlogs] = useState(props.allBlogs);
+
+  const fetchData = async () => {
+    let d = await fetch(
+      `http://localhost:3000/api/blogs/?count=${blogs.length + 2}`
+    );
+    let data = await d.json();
+    setBlogs(data);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -28,27 +43,31 @@ export default function Home() {
 
         <div>
           <h2 className={styles.h2}>Latest Blogs</h2>
-          <div>
-            <h3 className={styles.h3}>How to learn Javascript in 2022</h3>
-            <p className={styles.p}>
-              Javascript is the language used to design logic for the web
-            </p>
-            <button className={styles.btn}>Read More..</button>
-          </div>
-          <div>
-            <h3 className={styles.h3}>How to learn Javascript in 2022</h3>
-            <p className={styles.p}>
-              Javascript is the language used to design logic for the web
-            </p>
-            <button className={styles.btn}>Read More..</button>
-          </div>
-          <div>
-            <h3 className={styles.h3}>How to learn Javascript in 2022</h3>
-            <p className={styles.p}>
-              Javascript is the language used to design logic for the web
-            </p>
-            <button className={styles.btn}>Read More..</button>
-          </div>
+
+          <InfiniteScroll
+            dataLength={blogs.length} //This is important field to render the next data
+            next={fetchData}
+            hasMore={props.allCount > blogs.length}
+            loader={<h4>Loading...</h4>}
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
+            // below props only if you need pull down functionality
+          >
+            {blogs.map((blogItem) => (
+              <div key={Math.random()} className={styles.blogItem}>
+                <Link href={`/blogpost/${blogItem.slug}`}>
+                  <h2>{blogItem.title}</h2>
+                </Link>
+                <p className={styles.blogItemp}>{blogItem.metadesc}...</p>
+                <Link href={`/blogpost/${blogItem.slug}`}>
+                  <button className={styles.btn}>Read More..</button>
+                </Link>
+              </div>
+            ))}
+          </InfiniteScroll>
         </div>
       </main>
 
@@ -56,3 +75,23 @@ export default function Home() {
     </div>
   );
 }
+
+export async function getStaticProps(context) {
+  // Fetch data from external API
+  let data = await fs.promises.readdir("blogdata");
+  let allCount = data.length;
+  let myfile;
+  let allBlogs = [];
+
+  for (let index = 0; index < 3; index++) {
+    const item = data[index];
+    // console.log(item);
+    myfile = await fs.promises.readFile(`blogdata/${item}`, "utf-8");
+    allBlogs.push(JSON.parse(myfile));
+  }
+
+  // Pass data to the page via props
+  return { props: { allBlogs, allCount } };
+}
+
+export default Home;
