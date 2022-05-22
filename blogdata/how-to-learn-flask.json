@@ -1,7 +1,7 @@
 {
-  "title": "How to learn flask",
-  "content": "Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries.[2] It has no database abstraction layer, form validation, or any other components where pre-existing third-party libraries provide common functions. However, Flask supports extensions that can add application features as if they were implemented in Flask itself. Extensions exist for object-relational mappers, form validation, upload handling, various open authentication technologies and several common framework related tools.",
+  "title": "How to learn VueJS",
+  "content": "Vue.js (commonly referred to as Vue; pronounced 'view') is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications. It was created by Evan You, and is maintained by him and the rest of the active core team members.Vue.js features an incrementally adaptable architecture that focuses on declarative rendering and component composition. The core library is focused on the view layer only.[4] Advanced features required for complex applications such as routing, state management and build tooling are offered via officially maintained supporting libraries and packages.\nVue.js allows for extending HTML with HTML attributes called directives. The directives offer functionality to HTML applications, and come as either built-in or user defined directives.",
   "author": "Sandeep Kumar",
-  "metadesc": "Learn flask in a Day, I will teach you flask in 23 hours",
-  "slug": "how-to-learn-flask"
+  "metadesc": "Learn Vuejs in a Month, I will teach you Vuejs in 35 Days",
+  "slug": "how-to-learn-vuejs"
 }

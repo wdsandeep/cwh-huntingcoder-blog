@@ -20,7 +20,7 @@ const Blog = (props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ height: "110vh" }}>
       <main className={styles.main}>
         <InfiniteScroll
           dataLength={blogs.length} //This is important field to render the next data
@@ -58,7 +58,7 @@ export async function getStaticProps(context) {
   let myfile;
   let allBlogs = [];
 
-  for (let index = 0; index < 3; index++) {
+  for (let index = 0; index < 4; index++) {
     const item = data[index];
     // console.log(item);
     myfile = await fs.promises.readFile(`blogdata/${item}`, "utf-8");

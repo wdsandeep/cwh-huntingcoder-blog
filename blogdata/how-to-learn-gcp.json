@@ -1,0 +1,7 @@
+{
+  "title": "How to learn GCP (Google Cloud Platform)",
+  "content": "Google Cloud Platform (GCP), offered by Google, is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search, Gmail, Google Drive, and YouTube. Alongside a set of management tools, it provides a series of modular cloud services including computing, data storage, data analytics and machine learning. Registration requires a credit card or bank account details.\nGoogle Cloud Platform provides infrastructure as a service, platform as a service, and serverless computing environments.\nIn April 2008, Google announced App Engine, a platform for developing and hosting web applications in Google-managed data centers, which was the first cloud computing service from the company. The service became generally available in November 2011. Since the announcement of App Engine, Google added multiple cloud services to the platform.",
+  "author": "Sandeep Kumar",
+  "metadesc": "Learn GCP in 1 Month, I will teach you GCP in 28 Days",
+  "slug": "how-to-learn-gcp"
+}

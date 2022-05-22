@@ -4,7 +4,7 @@ import * as fs from "fs";
 
 // http://localhost:3000/api/blogs
 export default async function handler(req, res) {
-  console.log(req.query.count);
+  // console.log(req.query.count);
   let data = await fs.promises.readdir("blogdata");
   data = data.slice(0, req.query.count);
   let myfile;
