@@ -59,7 +59,7 @@ function Home(props) {
             {blogs.map((blogItem) => (
               <div key={Math.random()} className={styles.blogItem}>
                 <Link href={`/blogpost/${blogItem.slug}`}>
-                  <h2>{blogItem.title}</h2>
+                  <h2 style={{ cursor: "pointer" }}>{blogItem.title}</h2>
                 </Link>
                 <p className={styles.blogItemp}>{blogItem.metadesc}...</p>
                 <Link href={`/blogpost/${blogItem.slug}`}>
